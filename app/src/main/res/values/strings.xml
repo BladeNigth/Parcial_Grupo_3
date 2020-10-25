@@ -3,4 +3,10 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="login">Login</string>
+    <string name="logout">Cerrar Sesion</string>
+    <string name="agregar">Agregar Servicio Publico</string>
+    <string name="prompt_dirr">Dirreccion</string>
+    <string name="prompt_ncontador">Codigo Contador</string>
+    <string name="prompt_valor">Valor Contador</string>
+    <string name="agg">Agregar</string>
 </resources>

@@ -12,7 +12,6 @@ public class BaseDatos extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL(DefBD.create_tabla_contador);
     }
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +22,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        if(obtener()=="vacio"){
+        if(obtener().equals("vacio")){
 
         }else{
             Intent i = new Intent(this,ListadoActivity.class);
@@ -38,11 +39,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login:
-
-                sharedpreference();
-                Intent i = new Intent(this,ListadoActivity.class);
-                startActivity(i);
-                finish();
+                if(TextUtils.isEmpty(user.getText().toString())||TextUtils.isEmpty(pass.getText().toString())){
+                    Toast.makeText(this, "no puede haber datos vacion en el formulario", Toast.LENGTH_SHORT).show();
+                }else {
+                    sharedpreference();
+                    Intent i = new Intent(this, ListadoActivity.class);
+                    startActivity(i);
+                    finish();
+                }
                 break;
         }
     }
