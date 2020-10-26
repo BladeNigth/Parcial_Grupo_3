@@ -47,4 +47,15 @@ public class ContadorController {
         }
     }
 
+    public Cursor allContadores(){
+        try{
+            SQLiteDatabase sql = bd.getReadableDatabase();
+            Cursor d = sql.rawQuery("select id as _id,dirrecion, medida, valor, codcontador, fecha from contador",null);
+            return d;
+        }catch (Exception ex){
+            Toast.makeText(c, "Error en la consulta" + ex.getMessage(), Toast.LENGTH_SHORT).show();
+            return null;
+        }
+    }
+
 }
