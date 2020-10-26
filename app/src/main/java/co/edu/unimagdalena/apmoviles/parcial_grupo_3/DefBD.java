@@ -6,7 +6,6 @@ public class DefBD {
 
         public static final String nameDb ="ServiciosPublicos";
         public static final String tabla_contador = "contador";
-        public static final String col_id = "id";
         public static final String col_dir = "dirrecion";
         public static final String col_codcontador = "codcontador";
         public static final String col_valor = "valor";
@@ -14,8 +13,7 @@ public class DefBD {
         public static final String col_fecha = "fecha";
 
     public static final String create_tabla_contador = "CREATE TABLE IF NOT EXISTS " + DefBD.tabla_contador + " ( " +
-            DefBD.col_id + " integer primary key autoincrement," +
-            DefBD.col_codcontador + " text," +
+            DefBD.col_codcontador + " text primary key," +
             DefBD.col_medida + " text," +
             DefBD.col_dir + " text," +
             DefBD.col_valor + " text," +

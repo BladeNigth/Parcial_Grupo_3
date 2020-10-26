@@ -37,8 +37,6 @@ public class AgregarActivity extends AppCompatActivity implements View.OnClickLi
         medidas.setOnItemSelectedListener(this);
         agregar.setOnClickListener(this);
         cc = new ContadorController(this);
-
-
     }
 
     @Override
@@ -90,6 +88,7 @@ public class AgregarActivity extends AppCompatActivity implements View.OnClickLi
                 LoginActivity.logout(AgregarActivity.this,"vacio");
                 Intent i = new Intent(this,LoginActivity.class);
                 startActivity(i);
+                finish();
                 break;
 
         }
@@ -97,4 +96,9 @@ public class AgregarActivity extends AppCompatActivity implements View.OnClickLi
         return super.onOptionsItemSelected(item);
     }
 
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(this, ListadoActivity.class);
+        startActivity(i);
+    }
 }

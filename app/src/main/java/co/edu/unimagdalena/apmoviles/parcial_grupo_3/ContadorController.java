@@ -50,11 +50,26 @@ public class ContadorController {
     public Cursor allContadores(){
         try{
             SQLiteDatabase sql = bd.getReadableDatabase();
-            Cursor d = sql.rawQuery("select id as _id,dirrecion, medida, valor, codcontador, fecha from contador",null);
+            Cursor d = sql.rawQuery("select codcontador as _id, dirrecion, medida, valor, fecha from contador",null);
             return d;
         }catch (Exception ex){
             Toast.makeText(c, "Error en la consulta" + ex.getMessage(), Toast.LENGTH_SHORT).show();
             return null;
+        }
+    }
+
+    public void Modificar(String d,String v, String m,String cod){
+        try{
+            SQLiteDatabase sql = bd.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("dirrecion",d);
+            values.put("medida",m);
+            values.put("valor",v);
+            String[] a = new String[]{cod};
+            long BD = sql.update(DefBD.tabla_contador,values,"codContador=?",a);
+            Toast.makeText(c, "El Contador ha sido Modificado", Toast.LENGTH_SHORT).show();
+        }catch (Exception Ex){
+            Toast.makeText(c, Ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 

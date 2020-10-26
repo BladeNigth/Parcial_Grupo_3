@@ -64,4 +64,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         SharedPreferences preferences = c.getSharedPreferences(string_Preference,MODE_PRIVATE);
         preferences.edit().putString(string_Preference_Usuario,a).apply();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 }

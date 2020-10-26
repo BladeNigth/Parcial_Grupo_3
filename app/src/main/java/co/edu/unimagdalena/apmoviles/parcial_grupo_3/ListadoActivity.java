@@ -3,6 +3,7 @@ package co.edu.unimagdalena.apmoviles.parcial_grupo_3;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -34,8 +35,17 @@ public class ListadoActivity extends AppCompatActivity  implements View.OnClickL
         listado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView Id =view.findViewById(R.id.idtxt);
-                Toast.makeText(ListadoActivity.this, Id.getText().toString(), Toast.LENGTH_SHORT).show();
+                TextView dir = view.findViewById(R.id.dirrtxt);
+                TextView med = view.findViewById(R.id.medidatxt);
+                TextView val = view.findViewById(R.id.valortxt);
+                TextView codC = view.findViewById(R.id.codcontadortxt);
+                Intent l = new Intent(getApplicationContext(),EditarActivity.class);
+                l.putExtra("dir",dir.getText().toString());
+                l.putExtra("med",med.getText().toString());
+                l.putExtra("val",val.getText().toString());
+                l.putExtra("codC",codC.getText().toString());
+                startActivity(l);
+                finish();
             }
         });
     }
@@ -46,6 +56,7 @@ public class ListadoActivity extends AppCompatActivity  implements View.OnClickL
             case R.id.btnAgregar:
                 Intent i = new Intent(this,AgregarActivity.class);
                 startActivity(i);
+                finish();
                 break;
         }
     }
@@ -65,13 +76,13 @@ public class ListadoActivity extends AppCompatActivity  implements View.OnClickL
                 LoginActivity.logout(ListadoActivity.this,"vacio");
                 Intent i = new Intent(this,LoginActivity.class);
                 startActivity(i);
+                finish();
                 break;
 
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

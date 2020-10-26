@@ -20,19 +20,16 @@ public class ContadorCursoAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        TextView id = view.findViewById(R.id.idtxt);
         TextView dir = view.findViewById(R.id.dirrtxt);
         TextView med = view.findViewById(R.id.medidatxt);
         TextView val = view.findViewById(R.id.valortxt);
         TextView codC = view.findViewById(R.id.codcontadortxt);
         TextView fech = view.findViewById(R.id.fechatxt);
-        String Id = cursor.getString(0);
+        String codcontador = cursor.getString(0);
         String dirrecion = cursor.getString(1);
         String medida = cursor.getString(2);
         String valor = cursor.getString(3);
-        String codcontador = cursor.getString(4);
-        String fecha = cursor.getString(5);
-        id.setText(Id);
+        String fecha = cursor.getString(4);
         dir.setText(dirrecion);
         med.setText(medida);
         val.setText(valor);

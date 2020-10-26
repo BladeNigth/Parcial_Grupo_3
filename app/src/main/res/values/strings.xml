@@ -9,4 +9,6 @@
     <string name="prompt_ncontador">Codigo Contador</string>
     <string name="prompt_valor">Valor Contador</string>
     <string name="agg">Agregar</string>
+    <string name="modicar">Modificar</string>
+    <string name="eliminar">Eliminar</string>
 </resources>
