@@ -52,13 +52,13 @@ public class AgregarActivity extends AppCompatActivity implements View.OnClickLi
                     String fecha = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
                     c = new Contador(cContador.getText().toString(),med,dirr.getText().toString()
                             ,Integer.parseInt(vcontador.getText().toString()),fecha);
-                    cc.agregarContador(c);
+                    if(cc.buscarContador(c.getCodcontador())){
+                        Toast.makeText(this, "el Contador ya esta registrado", Toast.LENGTH_SHORT).show();
+                    }else{
+                        cc.agregarContador(c);
+                    }
+
                 }
-
-
-
-
-
                 break;
         }
     }
@@ -76,7 +76,7 @@ public class AgregarActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menuagregar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

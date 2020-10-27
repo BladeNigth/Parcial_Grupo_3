@@ -78,7 +78,20 @@ public class ListadoActivity extends AppCompatActivity  implements View.OnClickL
                 startActivity(i);
                 finish();
                 break;
-
+            case R.id.Agua:
+                Cursor vista = contadorController.FiltroAllcontadores("Agua");
+                ContadorCursoAdapter ccursor = new ContadorCursoAdapter(this,vista,false);
+                listado.setAdapter(ccursor);
+                break;
+            case R.id.Luz:
+                Cursor vista1 = contadorController.FiltroAllcontadores("Luz");
+                ContadorCursoAdapter ccursor1 = new ContadorCursoAdapter(this,vista1,false);
+                listado.setAdapter(ccursor1);
+                break;
+            case R.id.Gas:
+                Cursor vista2 = contadorController.FiltroAllcontadores("Gas");
+                ContadorCursoAdapter ccursor2 = new ContadorCursoAdapter(this,vista2,false);
+                listado.setAdapter(ccursor2);
         }
 
         return super.onOptionsItemSelected(item);

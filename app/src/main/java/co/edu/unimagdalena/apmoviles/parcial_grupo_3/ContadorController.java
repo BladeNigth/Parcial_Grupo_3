@@ -58,6 +58,38 @@ public class ContadorController {
         }
     }
 
+    public Cursor FiltroAllcontadores(String m){
+        try{
+            SQLiteDatabase sql = bd.getReadableDatabase();
+            if(m.equals("Agua")){
+                Cursor d = sql.rawQuery("select codcontador as _id, dirrecion, medida, valor, fecha from contador where medida='Agua'",null);
+                return d;
+            }else if(m.equals("Luz")){
+                Cursor d = sql.rawQuery("select codcontador as _id, dirrecion, medida, valor, fecha from contador where medida='Luz'",null);
+                return d;
+            }else if(m.equals("Gas")){
+                Cursor d = sql.rawQuery("select codcontador as _id, dirrecion, medida, valor, fecha from contador where medida='Gas'",null);
+                return d;
+            }
+            return null;
+        }catch (Exception ex){
+            Toast.makeText(c, "Error en la consulta" + ex.getMessage(), Toast.LENGTH_SHORT).show();
+            return null;
+        }
+    }
+
+    public boolean buscarContador(String cod){
+        String args[] = new String[]{cod};
+        SQLiteDatabase sqL = bd.getReadableDatabase();
+        Cursor c = sqL.query(DefBD.tabla_contador,null,"codcontador=?",args,null,null,null);
+        if(c.getCount()>0){
+            bd.close();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public void Modificar(String d,String v, String m,String cod){
         try{
             SQLiteDatabase sql = bd.getWritableDatabase();
@@ -70,6 +102,16 @@ public class ContadorController {
             Toast.makeText(c, "El Contador ha sido Modificado", Toast.LENGTH_SHORT).show();
         }catch (Exception Ex){
             Toast.makeText(c, Ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void Eliminar(String cod){
+        try{
+            SQLiteDatabase sql =bd.getWritableDatabase();
+            String args[] = new String[]{cod};
+            long l = sql.delete(DefBD.tabla_contador,"codcontador=?",args);
+            Toast.makeText(c, "Se ha Borrado El Contador", Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(c, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 

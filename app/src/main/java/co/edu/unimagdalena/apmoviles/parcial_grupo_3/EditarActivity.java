@@ -79,9 +79,14 @@ public class EditarActivity extends AppCompatActivity implements AdapterView.OnI
                 cc.Modificar(dirrecion.getText().toString(),valor.getText().toString(),medida.getSelectedItem().toString(),CodCont.getText().toString());
                 Intent lanzar = new Intent(this,ListadoActivity.class);
                 startActivity(lanzar);
+                finish();
                 break;
 
             case R.id.eliminar:
+                cc.Eliminar(ccont);
+                Intent l = new Intent(this,ListadoActivity.class);
+                startActivity(l);
+                finish();
                 break;
         }
 

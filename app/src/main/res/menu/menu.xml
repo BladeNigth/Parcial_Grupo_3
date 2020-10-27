@@ -7,4 +7,17 @@
         android:icon="@android:drawable/ic_lock_power_off"
         android:title="@string/logout"
         app:showAsAction="always" />
+    <item android:title="Filtrado">
+        <menu>
+            <item
+                android:id="@+id/Agua"
+                android:title="Agua" />
+            <item
+                android:id="@+id/Luz"
+                android:title="Luz" />
+            <item
+                android:id="@+id/Gas"
+                android:title="Gas" />
+        </menu>
+    </item>
 </menu>

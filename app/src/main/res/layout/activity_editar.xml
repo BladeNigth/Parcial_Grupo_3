@@ -17,20 +17,18 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="110dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/boton_redondo"
         android:text="@string/modicar"
         android:textSize="36sp" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
 
 
-
-
         <androidx.cardview.widget.CardView
             android:layout_width="367dp"
-            android:layout_height="380dp"
+            android:layout_height="405dp"
             android:layout_margin="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
@@ -38,14 +36,13 @@
             android:layout_marginBottom="5dp"
             android:padding="10dp"
             app:cardCornerRadius="5dp"
-            app:cardElevation="5dp"
-            >
+            app:cardElevation="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView4"
@@ -67,26 +64,26 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/prompt_dirr"
                     android:layout_marginTop="15dp"
-                    android:textSize="24sp"/>
+                    android:text="@string/prompt_dirr"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/edtdirr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:layout_marginTop="10dp"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/prompt_valor"
                     android:layout_marginTop="25dp"
-                    android:textSize="24sp"/>
+                    android:text="@string/prompt_valor"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/edtvalor"
