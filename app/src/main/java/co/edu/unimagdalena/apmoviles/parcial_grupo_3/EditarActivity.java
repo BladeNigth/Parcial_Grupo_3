@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -76,10 +78,16 @@ public class EditarActivity extends AppCompatActivity implements AdapterView.OnI
                 finish();
                 break;
             case R.id.modificar:
-                cc.Modificar(dirrecion.getText().toString(),valor.getText().toString(),medida.getSelectedItem().toString(),CodCont.getText().toString());
-                Intent lanzar = new Intent(this,ListadoActivity.class);
-                startActivity(lanzar);
-                finish();
+
+                if(TextUtils.isEmpty(dirrecion.getText().toString()) || TextUtils.isEmpty(valor.getText().toString())){
+                    Toast.makeText(this, "Los Datos no pueden estar Vacios", Toast.LENGTH_SHORT).show();
+                }else{
+                    cc.Modificar(dirrecion.getText().toString(),valor.getText().toString(),medida.getSelectedItem().toString(),CodCont.getText().toString());
+                    Intent lanzar = new Intent(this,ListadoActivity.class);
+                    startActivity(lanzar);
+                    finish();
+                }
+
                 break;
 
             case R.id.eliminar:
